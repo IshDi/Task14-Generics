@@ -19,6 +19,7 @@ public class MagicBox<T> {
     }
 
     public T pick() {
+        Random random = new Random();
         int count = 0;
         for (int i = 0; i < items.length; i++) {
             if (items[i] == null) {
@@ -28,7 +29,6 @@ public class MagicBox<T> {
         if (count > 0) {
             throw new RuntimeException("Коробка неполная, количество незаполненных ячеек: " + count + ".");
         } else {
-            Random random = new Random();
             int randomInt = random.nextInt(items.length);
             return items[randomInt];
         }
